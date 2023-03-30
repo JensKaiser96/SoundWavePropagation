@@ -4,8 +4,17 @@ SPEED_OF_SOUND = 343  # m/s
 
 
 class Point2D(NamedTuple):
-    x: int
     y: int
+    x: int
+
+    def __mul__(self, other):
+        return Point2D(self.y * other, self.x * other)
+
+    def __sub__(self, other):
+        return Point2D(self.y - other, self.x - other)
+
+    def __add__(self, other):
+        return Point2D(self.y + other, self.x + other)
 
 
 class Space:
